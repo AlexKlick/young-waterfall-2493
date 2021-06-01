@@ -5,3 +5,10 @@
 <% @movie.actors.each do |actor| %>
 <h6><%= actor.name %></h6>
 <% end %>
+
+<%= form_with url:"/actor_movies", local: true do |f| %>
+  <%= f.label :add_a_known_actor %>
+  <%= f.text_field :name %>
+  <%= f.hidden_field :movie_id, value: "#{@movie.id}" %>
+  <%= f.submit 'Submit' %>
+<% end %>
