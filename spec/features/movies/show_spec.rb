@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-describe 'studio show page' do 
+describe 'movie show page' do 
   before(:each) do
     @studio = Studio.create(name:"Warner Bros", location:"Hollywood, CA")
     @movie1 = Movie.create(title:"The Matrix", creation_year:1999, genre:"Sci-Fi", studio_id: @studio.id)
@@ -54,7 +54,7 @@ describe 'studio show page' do
 
   it 'has a form to add an actor to the movie, when I add an existing actor, and submit, it redirects to movie page and displays added actor' do
     visit "/movies/#{@movie1.id}"
-    fill_in 'name', with: 'Jada Pinkett Smith'
+    fill_in 'name', with: @actor4.name
     click_on "commit"
     expect(current_path).to eq("/movies/#{@movie1.id}")
     expect(page).to have_content(@actor4.name)
