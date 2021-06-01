@@ -3,5 +3,12 @@
 
 <h3>Movies:</h3>
 <% @studio.movies.each do |movie|%>
-  <h4><%= movie.title %></h4>
+<h4><%= movie.title %></h4>
 <%end%>
+
+<h3>Actors that have worked for us:</h3>
+<ul>
+<% @actors.each do |actor| %>
+  <li><%=actor%></li>
+  <% end %>
+</ul>
